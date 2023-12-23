@@ -1,10 +1,8 @@
 import './App.css'
-import Private from './layout/Private'
 import GoogleFontLoader from "react-google-font-loader";
 
 function App() {
 
-  
   return (
     <>
       <GoogleFontLoader
@@ -39,7 +37,6 @@ function App() {
               }
             ]}
         />
-      <Private />
     </>
   )
 }
