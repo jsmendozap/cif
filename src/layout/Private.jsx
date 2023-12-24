@@ -2,11 +2,11 @@ import React from 'react'
 import Header from '../components/Header'
 import Body from '../components/Body'
 
-const Private = ({children}) => {
+const Private = ({ page }) => {
   return (
     <>
         <Header />
-        <main style={{minHeight: 'calc(100vh - 164px)'}}>{children}</main>
+        <main style={{minHeight: 'calc(100vh - 164px)'}}>{ page }</main>
     </>
   )
 }
