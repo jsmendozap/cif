@@ -1,6 +1,8 @@
-import React, { useContext, useEffect } from 'react'
-import { MapContainer, TileLayer, LayersControl, useMapEvents, useMap, GeoJSON } from 'react-leaflet'
+import React, { useContext } from 'react'
+import { MapContainer, TileLayer, LayersControl, useMapEvents, GeoJSON } from 'react-leaflet'
 import { DataContext } from '../App';
+import * as turf from '@turf/turf'
+import { Button } from 'antd';
 
 const LeafletMap = () => {
 
@@ -9,6 +11,12 @@ const LeafletMap = () => {
     const setColor = ({ properties }) => {
       return { weight: 1 };
     };
+
+    const bounds = turf.bbox(data);
+    const newBounds = [[bounds[0], bounds[1]], [bounds[2], bounds[3]]]
+    console.log(newBounds)
+    
+    const center = turf.centroid(data).geometry.coordinates.reverse()
     
     const OnEvent = () => {
         useMapEvents({
@@ -18,10 +26,10 @@ const LeafletMap = () => {
       }
     
     return (
-      <div id='map'>
-        <MapContainer className='rounded-md border-2 border-gray-300' center={[3.86, -72.58]} zoom={5} style={{height: '400px'}}>
+      <div className='shadow-md hover:shadow-lg transition duration-300' style={{height: '360px'}} id='map'>
+        <MapContainer className='rounded-md border-2 border-gray-300' zoom={5} center={center} style={{height: '360px'}}>
           <OnEvent />
-          <LayersControl position='topright'>
+          <LayersControl position='bottomright'>
             <LayersControl.Overlay checked name='Carto'>
               <TileLayer
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
@@ -37,6 +45,7 @@ const LeafletMap = () => {
           </LayersControl>
           <GeoJSON data={data} style={setColor} />
         </MapContainer>
+        <Button className='my-3'>Seleccionar otro archivo</Button>
       </div>
     )
 }
