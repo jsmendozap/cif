@@ -36,6 +36,13 @@ const DropZone = () => {
     }, [])
     
     const { getRootProps, getInputProps, isDragActive } = useDropzone({onDrop, accept: '.geojson'});
+
+    const text = (
+      <div className='text-center'>
+        <p>Arrastre o seleccione el shape del predio</p>
+        <p className='text-lg'>Formato admitido: GeoJSON</p>
+      </div> 
+    )
     
     return (
     <div className='rounded-md hover:shadow-md hover:border-blue-400 h-80' style={{border: '2px dashed rgba(0,0,255,0.07)'}} {...getRootProps({ role: 'button'})}>
@@ -43,7 +50,7 @@ const DropZone = () => {
       {
         isDragActive ?
         <DragText text='Suelte el archivo aquí' /> :
-        <DragText text='Arrastre o seleccione el shape del predio' />
+        <DragText text={text} />
       }
     </div>
   )

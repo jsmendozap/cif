@@ -1,36 +1,38 @@
 import React, { useContext } from 'react'
-import { MapContainer, TileLayer, LayersControl, useMapEvents, GeoJSON } from 'react-leaflet'
+import { MapContainer, TileLayer, LayersControl, GeoJSON, useMap } from 'react-leaflet'
 import { DataContext } from '../App';
 import * as turf from '@turf/turf'
-import { Button } from 'antd';
 
 const LeafletMap = () => {
 
     const [data, setData] = useContext(DataContext)
-
+    
+    const Bound = () => {
+      const map = useMap()
+      
+      const bounds = turf.bbox(data);
+      map.fitBounds([[bounds[3], bounds[2]], [bounds[1], bounds[0]]])
+      
+      return null
+    }
+    
     const setColor = ({ properties }) => {
-      return { weight: 1 };
+      return { weight: 1, color: 'gray' };
     };
 
-    const bounds = turf.bbox(data);
-    const newBounds = [[bounds[0], bounds[1]], [bounds[2], bounds[3]]]
-    console.log(newBounds)
-    
     const center = turf.centroid(data).geometry.coordinates.reverse()
     
-    const OnEvent = () => {
-        useMapEvents({
-          click: (e) => {console.log(e.latlng)}
-        })
-        return null
-      }
-    
     return (
-      <div className='shadow-md hover:shadow-lg transition duration-300' style={{height: '360px'}} id='map'>
-        <MapContainer className='rounded-md border-2 border-gray-300' zoom={5} center={center} style={{height: '360px'}}>
-          <OnEvent />
+      <div className='shadow-md hover:shadow-lg transition duration-300' style={{height: '280px'}} id='map'>
+        <MapContainer 
+          className='rounded-md border-2 border-gray-300'
+          zoom={3} 
+          center={center} 
+          style={{height: '280px'}}>
+          <Bound />
           <LayersControl position='bottomright'>
             <LayersControl.Overlay checked name='Carto'>
+              <GeoJSON data={data} style={setColor}/>
               <TileLayer
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
                   url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
@@ -43,9 +45,7 @@ const LeafletMap = () => {
               />
             </LayersControl.Overlay>
           </LayersControl>
-          <GeoJSON data={data} style={setColor} />
         </MapContainer>
-        <Button className='my-3'>Seleccionar otro archivo</Button>
       </div>
     )
 }

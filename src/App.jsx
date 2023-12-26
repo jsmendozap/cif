@@ -44,15 +44,11 @@ function App() {
               },
               {
                 font: "Inclusive Sans",
-                weights: [400, 700],
+                weights: [400],
               },
               {
                 font: "Mukta",
                 weights: [200],
-              },
-              {
-                font: "Pacifico",
-                weights: [400]
               },
               {
                 font: "Oleo Script",

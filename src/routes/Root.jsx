@@ -11,14 +11,13 @@ const Root = () => {
 
   return (
     <LoadContext.Provider value={[isLoaded, setLoad]}>
-      <div className='mx-12 mt-8'>
-          <div className='grid grid-cols-4 gap-4 pb-4 h-50'>
-            <CardInf title='PRECIPITACIÓN' />
-            <CardInf title='TEMPERATURA' />
-            <CardInf title='ELEVACIÓN' />
-            <CardInf title='SUELO' />
+      <div className='mt-4 mb-2 mx-8'>
+          <div className='grid gap-4 pb-4 h-50'  style={{ gridTemplateColumns: "33fr 33fr 35fr" }}>
+            <CardInf title='PRECIPITACIÓN' plot={true}/>
+            <CardInf title='TEMPERATURA' plot={true}/>
+            <CardInf title='ELEVACIÓN' plot={false}/>
           </div>
-          <div className='grid grid-cols-2 gap-4 pb-6'>
+          <div className='grid grid-cols-2 gap-4'>
             <CardInf title='ESPECIES RECOMENDADAS'/>
             {isLoaded ? <LeafletMap/> : <DropZone/>}
           </div>
