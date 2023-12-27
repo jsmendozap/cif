@@ -12,7 +12,7 @@ const Root = () => {
   return (
     <LoadContext.Provider value={[isLoaded, setLoad]}>
       <div className='mt-4 mb-2 mx-8'>
-          <div className='grid gap-4 pb-4 h-50'  style={{ gridTemplateColumns: "33fr 33fr 35fr" }}>
+          <div className='grid grid-cols-3 gap-4 pb-4 h-50' >
             <CardInf title='PRECIPITACIÓN' plot={true}/>
             <CardInf title='TEMPERATURA' plot={true}/>
             <CardInf title='ELEVACIÓN' plot={false}/>
