@@ -1,7 +1,10 @@
 import React from 'react'
 import { AreaChart, Area, XAxis, YAxis, Tooltip } from 'recharts';
+import pp from '../media/rain.svg'
+import temp from '../media/temperature.png'
+import { Tabs } from 'antd';
 
-const Chart = ({ variable }) => {
+const Chart = () => {
 
   const data = [
     {
@@ -152,35 +155,70 @@ const Chart = ({ variable }) => {
         </div>
       )
     }
-
-    return null;
   }
 
-  return (
-    <AreaChart
-      width={330}
-      height={180}
-      data={data}
-      margin={{
-        top: 5,
-        right: 0,
-        left: 0,
-        bottom: 0,
-      }} >
-        <XAxis dataKey="month" />
-        <YAxis />
-        <Tooltip content={CustomToltip}/>
-        {
-          variable === 'PRECIPITACIÓN' ?
-            <Area type="monotone" dataKey="pp" stroke="#8884d8" fill="#8884d8" /> :
-            <>
-              <Area type="monotone" dataKey="tavg" stroke="#8884d8" fill="#8884d8" />
-              <Area type="monotone" dataKey="tmax" stroke="#82ca9d" fill="#82ca9d" />
-              <Area type="monotone" dataKey="tmin" stroke="#ffc658" fill="#ffc658" />
-            </>
+  const Plot = ({ type }) => {
+    return(
+      <AreaChart
+        width={330}
+        height={180}
+        data={data}
+        margin={{
+          top: 10,
+          right: 0,
+          left: 0,
+          bottom: 0,
+        }} >
+          <XAxis dataKey="month" />
+          <YAxis />
+          <Tooltip content={CustomToltip}/>
+          {
+            type === 'pp' ?
+              <Area type="monotone" dataKey="pp" stroke="#8884d8" fill="#8884d8" /> :
+              <>
+                <Area type="monotone" dataKey="tavg" stroke="#8884d8" fill="#8884d8" />
+                <Area type="monotone" dataKey="tmax" stroke="#82ca9d" fill="#82ca9d" />
+                <Area type="monotone" dataKey="tmin" stroke="#ffc658" fill="#ffc658" />
+              </>
 
-        }
-    </AreaChart>
+          }
+      </AreaChart>
+    )
+  }
+
+  const items = [
+    {
+      key: "1",
+      label: (
+        <span className="flex">
+          <img src={pp} alt="Lluvia" className="w-6 mr-2" />
+          Precipitación
+        </span>
+      ),
+      children: <Plot type='pp'/>,
+    },
+    {
+      key: "2",
+      label: (
+        <span className="flex">
+          <img src={temp} alt="Temperatura" className="w-6 mr-2" />
+          Temperatura
+        </span>
+      ),
+      children: <Plot type='temp'/>,
+    }
+  ];
+
+  return (
+    <div className="flex flex-row h-30">
+      <Tabs
+        animated={true}
+        tabPosition='left'
+        items={items}
+        style={{ width: "100%" }}
+        tabBarGutter={12}
+      />
+    </div>
   )
 }
 

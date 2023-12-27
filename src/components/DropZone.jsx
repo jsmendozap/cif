@@ -45,7 +45,10 @@ const DropZone = () => {
     )
     
     return (
-    <div className='rounded-md hover:shadow-md hover:border-blue-400 h-80' style={{border: '2px dashed rgba(0,0,255,0.07)'}} {...getRootProps({ role: 'button'})}>
+    <div 
+      className='sticky top-6 rounded-md hover:shadow-lg hover:border-blue-400'
+      style={{border: '2px dashed rgba(0,0,255,0.07)', height: 'calc(100vh - 90px)'}} 
+      {...getRootProps({ role: 'button'})}>
       <input {...getInputProps()} />
       {
         isDragActive ?

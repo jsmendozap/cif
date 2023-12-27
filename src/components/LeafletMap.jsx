@@ -23,16 +23,18 @@ const LeafletMap = () => {
     const center = turf.centroid(data).geometry.coordinates.reverse()
     
     return (
-      <div className='shadow-md hover:shadow-lg transition duration-300' style={{height: '280px'}} id='map'>
+      <div className='sticky top-6 shadow-md hover:shadow-lg transition duration-300' style={{height: 'calc(100vh - 90px)'}} id='map'>
         <MapContainer 
           className='rounded-md border-2 border-gray-300'
           zoom={3} 
           center={center} 
-          style={{height: '280px'}}>
+          style={{height: 'calc(100vh - 90px)'}}>
           <Bound />
           <LayersControl position='bottomright'>
-            <LayersControl.Overlay checked name='Carto'>
+            <LayersControl.Overlay checked name='Predio'>
               <GeoJSON data={data} style={setColor}/>
+            </LayersControl.Overlay>
+            <LayersControl.Overlay checked name='Carto'>
               <TileLayer
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
                   url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"

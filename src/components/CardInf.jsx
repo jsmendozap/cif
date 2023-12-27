@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Card, Skeleton } from 'antd';
 import { LoadContext } from '../routes/Root';
 import Chart from './Chart';
+import Introduction from './Introduction';
 
 const CardInf = ({ title, plot }) => {
 
@@ -11,7 +12,8 @@ const CardInf = ({ title, plot }) => {
     <>
         <Card className='shadow hover:shadow-md' title={title} style={{fontFamily: 'Mukta'}}>
               {isLoaded ? 
-                plot ? <Chart variable={title} /> : <p>Texto</p> :
+                plot ? <Chart /> :
+                 title === 'PRESENTACIÓN' ? <Introduction /> : <p>Texto</p> :
                 <Skeleton />}
         </Card>
     </>
