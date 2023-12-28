@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import LeafletMap from '../components/LeafletMap'
 import DropZone from '../components/DropZone';
 import CardInf from '../components/CardInf';
+import Introduction from '../components/Introduction';
 
 export const LoadContext = React.createContext();
 
@@ -12,8 +13,8 @@ const Root = () => {
   return (
     <LoadContext.Provider value={[isLoaded, setLoad]}>
       <div className='grid grid-cols-2 gap-4 mt-4 mb-2 mx-8'>
-          <div className='grid grid-rows-4 gap-4 pb-4 h-50' >
-            <CardInf title='PRESENTACIÓN'/>
+          <div className='grid grid-rows-6 gap-4 pb-4 h-50' >
+            <Introduction />
             <CardInf title='VARIABLES BIOCLIMÁTICAS' plot={true}/>
             <CardInf title='TOPOGRAFIA' plot={false}/>
             <CardInf title='SUELOS' plot={false} />
