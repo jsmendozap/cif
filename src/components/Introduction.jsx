@@ -3,7 +3,7 @@ import { Card } from 'antd';
 
 const Introduction = () => {
   return (
-    <Card className='shadow hover:shadow-md text-justify' title='PRESENTACIÓN' style={{fontFamily: 'Mukta'}}>
+    <Card className='shadow hover:shadow-md text-justify mb-4' title='PRESENTACIÓN' style={{fontFamily: 'Mukta'}}>
       <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, ex aliquam voluptatum et ea laboriosam libero itaque, excepturi non laborum maxime illo nemo ratione maiores modi eligendi fugit perferendis voluptate? 
       </p>

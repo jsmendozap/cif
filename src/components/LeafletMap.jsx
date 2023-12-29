@@ -102,7 +102,6 @@ const LeafletMap = () => {
             </LayersControl.Overlay>
           </LayersControl>
         </MapContainer>
-        
       </div>
     )
 }

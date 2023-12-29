@@ -9,7 +9,7 @@ const CardInf = ({ title, plot }) => {
   const [isLoaded, setLoaded] = useContext(LoadContext)
 
   return (
-    <Card className='shadow hover:shadow-md' title={title} style={{fontFamily: 'Mukta'}}>
+    <Card className='shadow hover:shadow-md mb-4' title={title} style={{fontFamily: 'Mukta'}}>
       {isLoaded ? 
         plot ? <Chart /> :
           title === 'TOPOGRAFIA' ? <Topography /> : <p>Texto</p> :

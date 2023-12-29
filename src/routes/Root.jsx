@@ -9,11 +9,11 @@ export const LoadContext = React.createContext();
 const Root = () => {
 
   const [isLoaded, setLoad] = useState(false);
-
+  
   return (
     <LoadContext.Provider value={[isLoaded, setLoad]}>
       <div className='grid grid-cols-2 gap-4 mt-4 mb-2 mx-8'>
-          <div className='grid grid-rows-6 gap-4 pb-4 h-50' >
+          <div>
             <Introduction />
             <CardInf title='VARIABLES BIOCLIMÁTICAS' plot={true}/>
             <CardInf title='TOPOGRAFIA' plot={false}/>

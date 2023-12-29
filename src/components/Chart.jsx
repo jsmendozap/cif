@@ -159,30 +159,35 @@ const Chart = () => {
 
   const Plot = ({ type }) => {
     return(
-      <AreaChart
-        width={330}
-        height={180}
-        data={data}
-        margin={{
-          top: 10,
-          right: 0,
-          left: 0,
-          bottom: 0,
-        }} >
-          <XAxis dataKey="month" />
-          <YAxis />
-          <Tooltip content={CustomToltip}/>
-          {
-            type === 'pp' ?
-              <Area type="monotone" dataKey="pp" stroke="#8884d8" fill="#8884d8" /> :
-              <>
-                <Area type="monotone" dataKey="tavg" stroke="#8884d8" fill="#8884d8" />
-                <Area type="monotone" dataKey="tmax" stroke="#82ca9d" fill="#82ca9d" />
-                <Area type="monotone" dataKey="tmin" stroke="#ffc658" fill="#ffc658" />
-              </>
+      <div style={{fontFamily: 'Mukta'}}>
+        <p className='font-medium'>Promedio anual multianual: </p>    
+        <p>Periodo de evaluación: </p>  
+        <AreaChart
+          width={330}
+          height={180}
+          data={data}
+          margin={{
+            top: 25,
+            right: 0,
+            left: 0,
+            bottom: 15,
+          }} >
+            <XAxis dataKey="month" />
+            <YAxis />
+            <Tooltip content={CustomToltip}/>
+            {
+              type === 'pp' ?
+                <Area type="monotone" dataKey="pp" stroke="#8884d8" fill="#8884d8" /> :
+                <>
+                  <Area type="monotone" dataKey="tavg" stroke="#8884d8" fill="#8884d8" />
+                  <Area type="monotone" dataKey="tmax" stroke="#82ca9d" fill="#82ca9d" />
+                  <Area type="monotone" dataKey="tmin" stroke="#ffc658" fill="#ffc658" />
+                </>
 
-          }
-      </AreaChart>
+            }
+        </AreaChart>
+        <p className='text-right'>Fuente de información: </p>
+      </div>
     )
   }
 
