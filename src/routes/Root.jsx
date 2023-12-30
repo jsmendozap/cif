@@ -15,10 +15,10 @@ const Root = () => {
       <div className='grid grid-cols-2 gap-4 mt-4 mb-2 mx-8'>
           <div>
             <Introduction />
-            <CardInf title='VARIABLES BIOCLIMÁTICAS' plot={true}/>
-            <CardInf title='TOPOGRAFIA' plot={false}/>
-            <CardInf title='SUELOS' plot={false} />
-            <CardInf title='ESTADÍSTICAS' plot={false} />
+            <CardInf title='VARIABLES BIOCLIMÁTICAS'/>
+            <CardInf title='TOPOGRAFIA'/>
+            <CardInf title='SUELOS'/>
+            <CardInf title='CONDICIONANTES'/>
             <CardInf title='ESPECIES RECOMENDADAS'/>
           </div>
           {isLoaded ? <LeafletMap/> : <DropZone/>}
