@@ -104,7 +104,7 @@ const PiePlot = ({ data, which }) => {
           "#6cad3c",
           "#b3b305",
         ]
-      : ["#6b5743", "#aca067", "#a7ab47", "#636a06"];
+      : ["#81B622", "#13678A", "#45C4B0", "#9AEBA3"];
 
   return (
     <>
@@ -114,9 +114,9 @@ const PiePlot = ({ data, which }) => {
           activeShape={renderActiveShape}
           data={data}
           cx={175}
-          cy={100}
-          innerRadius={55}
-          outerRadius={70}
+          cy={105}
+          innerRadius={60}
+          outerRadius={75}
           fill="gray"
           dataKey="value"
           onMouseEnter={onPieEnter}

@@ -4,7 +4,6 @@ import { LoadContext } from "../routes/Root";
 import Topography from "./Topography";
 import BioClim from "./BioClim";
 import Conditions from "./Conditions";
-import Species from "./Species";
 import Soils from "./Soils";
 
 const CardInf = ({ title, data }) => {
@@ -23,10 +22,8 @@ const CardInf = ({ title, data }) => {
           <Topography data={data} />
         ) : title === "CONDICIONANTES" ? (
           <Conditions data={data} />
-        ) : title === "SUELOS" ? (
-          <Soils />
         ) : (
-          <Species data={data} />
+          <Soils />
         )
       ) : (
         <Skeleton />

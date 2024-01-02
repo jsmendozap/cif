@@ -36,8 +36,8 @@ const BioClim = ({ data }) => {
   const CustomToltip = ({ payload, label, active }) => {
     if (active) {
       return (
-        <div className="custom-tooltips">
-          <p className="intro">{title(label)}</p>
+        <div className="custom-tooltips bg-gray-800 bg-opacity-50 rounded-md p-1 text-white font-bold">
+          <p className="intro">Mes: {title(label)}</p>
           {payload.map((serie) => {
             let lab;
             switch (serie.name) {

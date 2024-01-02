@@ -45,7 +45,7 @@ const Species = ({ data }) => {
     },
   ];
 
-  return <Table dataSource={inf} columns={columns} />;
+  return <Table dataSource={inf} columns={columns} bordered={true} />;
 };
 
 export default Species;

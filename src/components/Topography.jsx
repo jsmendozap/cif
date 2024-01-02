@@ -1,13 +1,12 @@
-import React from 'react'
-import TabCard from '../components/TabCard'
-import esqui from '../media/esqui.png'
-import mountain from '../media/montana.png'
-import brujula from '../media/brujula.png'
-import PiePlot from './PiePlot'
-import RadarPlot from './RadarPlot'
+import React from "react";
+import TabCard from "../components/TabCard";
+import esqui from "../media/esqui.png";
+import mountain from "../media/montana.png";
+import brujula from "../media/brujula.png";
+import PiePlot from "./PiePlot";
+import RadarPlot from "./RadarPlot";
 
 const Topography = ({ data }) => {
-
   const items = [
     {
       key: "1",
@@ -19,12 +18,13 @@ const Topography = ({ data }) => {
       ),
       children: (
         <>
-          <p className="pb-5" style={{fontFamily: 'Mukta'}}>
-              Pendiente promedio del terreno: 
-          </p>  
-          <PiePlot data={data.slope} which='top' />
+          <p className="pb-5" style={{ fontFamily: "Mukta" }}>
+            Pendiente promedio del terreno:
+          </p>
+          <PiePlot data={data.slope} which="top" />
         </>
-    )},
+      ),
+    },
     {
       key: "2",
       label: (
@@ -43,13 +43,11 @@ const Topography = ({ data }) => {
           Orientación
         </span>
       ),
-      children: <RadarPlot data={data.aspect}/>
-    }
+      children: <RadarPlot data={data.aspect} />,
+    },
   ];
 
-  return (
-    <TabCard items={items} />
-  )
-}
+  return <TabCard items={items} />;
+};
 
-export default Topography
+export default Topography;
