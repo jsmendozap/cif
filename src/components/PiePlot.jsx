@@ -1,18 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { PieChart, Pie, Sector, Cell } from "recharts";
 
-const data = [
-  { name: "Plana", value: 5 },
-  { name: "Ligeramenta inclinada", value: 10 },
-  { name: "Moderadamente inclinada", value: 30 },
-  { name: "Fuertemente inclinada", value: 60 },
-  { name: "Ligeramente escarpada", value: 120},
-  { name: "Moderadamente escarpada", value: 5},
-  { name: "Fuertemente escarpada", value: 8}
-];
-
 const renderActiveShape = (props) => {
-
   const RADIAN = Math.PI / 180;
 
   const {
@@ -26,7 +15,7 @@ const renderActiveShape = (props) => {
     fill,
     payload,
     percent,
-    value
+    value,
   } = props;
 
   const sin = Math.sin(-RADIAN * midAngle);
@@ -42,11 +31,13 @@ const renderActiveShape = (props) => {
   return (
     <g>
       <text x={cx} y={cy} textAnchor="middle" fill={fill}>
-        {
-          payload.name.split(' ').map((text, index) => {
-            return <tspan key={index} x={cx} dy={index === 0 ? 0 : '1.2em'}>{text}</tspan>
-          })
-        }
+        {payload.name.split(" ").map((text, index) => {
+          return (
+            <tspan key={index} x={cx} dy={index === 0 ? 0 : "1.2em"}>
+              {text}
+            </tspan>
+          );
+        })}
       </text>
       <Sector
         cx={cx}
@@ -77,59 +68,73 @@ const renderActiveShape = (props) => {
         y={ey}
         textAnchor={textAnchor}
         fill="#333"
-      >{`PV ${value}`}</text>
+        style={{ fontFamily: "Inclusive Sans" }}
+      >{`${value} ha`}</text>
       <text
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
         dy={18}
         textAnchor={textAnchor}
         fill="#999"
+        style={{ fontFamily: "Inclusive Sans" }}
       >
-        {`(Rate ${(percent * 100).toFixed(2)}%)`}
+        {`(${(percent * 100).toFixed(2)}%)`}
       </text>
     </g>
   );
 };
 
-const PiePlot = () => {
+const PiePlot = ({ data, which }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const onPieEnter = useCallback(
     (_, index) => {
       setActiveIndex(index);
     },
     [setActiveIndex]
-    );
-    
-    const colors = ["#002f61", "#004d71", "#006a77", "#008572", "#069f5c", "#6cad3c", "#b3b305"]
-  
-    return (
-      <>
-        <p className="pb-5" style={{fontFamily: 'Mukta'}}>
-          Pendiente promedio del terreno: 
-        </p>
-        <PieChart width={450} height={250}>
-          <Pie
-            activeIndex={activeIndex}
-            activeShape={renderActiveShape}
-            data={data}
-            cx={160}
-            cy={100}
-            innerRadius={55}
-            outerRadius={70}
-            fill="gray"
-            dataKey="value"
-            onMouseEnter={onPieEnter}
-          >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-            ))}
-          </Pie>
-        </PieChart>
-        <p className="text-right" style={{fontFamily: 'Mukta'}}>
-          Fuente de información: 
-        </p>
-      </>
-    )
-}
+  );
 
-export default PiePlot
+  const colors =
+    which === "top"
+      ? [
+          "#002f61",
+          "#004d71",
+          "#006a77",
+          "#008572",
+          "#069f5c",
+          "#6cad3c",
+          "#b3b305",
+        ]
+      : ["#6b5743", "#aca067", "#a7ab47", "#636a06"];
+
+  return (
+    <>
+      <PieChart width={450} height={250}>
+        <Pie
+          activeIndex={activeIndex}
+          activeShape={renderActiveShape}
+          data={data}
+          cx={175}
+          cy={100}
+          innerRadius={55}
+          outerRadius={70}
+          fill="gray"
+          dataKey="value"
+          onMouseEnter={onPieEnter}
+        >
+          {data.map((entry, index) => (
+            <Cell
+              key={`cell-${index}`}
+              fill={colors[index % colors.length]}
+              opacity={0.8}
+            />
+          ))}
+        </Pie>
+      </PieChart>
+      <p className="text-right" style={{ fontFamily: "Mukta" }}>
+        Fuente de información:
+      </p>
+    </>
+  );
+};
+
+export default PiePlot;

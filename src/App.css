@@ -3,3 +3,7 @@
     border-color: #1890ff; 
     color: white; 
   }
+
+.ant-tabs-tab {
+  padding-left: 0px !important;
+}

@@ -7,18 +7,7 @@ import {
     PolarRadiusAxis
   } from "recharts";
   
-  const RadarPlot = () => {
-      
-    const data = [
-        { orientation: 'N', value: 84, fullMark: 180 },
-        { orientation: 'NE', value: 180, fullMark: 180 },
-        { orientation: 'E', value: 154, fullMark: 180 },
-        { orientation: 'SE', value: 106, fullMark: 180 },
-        { orientation: 'S', value: 136, fullMark: 180 },
-        { orientation: 'SO', value: 169, fullMark: 180 },
-        { orientation: 'O', value: 177, fullMark: 180 },
-        { orientation: 'NO', value: 146, fullMark: 180 },
-      ];
+  const RadarPlot = ({ data }) => {
     
     return (
       <div style={{fontFamily: 'Mukta'}}>

@@ -6,7 +6,7 @@ import brujula from '../media/brujula.png'
 import PiePlot from './PiePlot'
 import RadarPlot from './RadarPlot'
 
-const Topography = () => {
+const Topography = ({ data }) => {
 
   const items = [
     {
@@ -17,8 +17,14 @@ const Topography = () => {
           Pendiente
         </span>
       ),
-      children: <PiePlot />,
-    },
+      children: (
+        <>
+          <p className="pb-5" style={{fontFamily: 'Mukta'}}>
+              Pendiente promedio del terreno: 
+          </p>  
+          <PiePlot data={data.slope} which='top' />
+        </>
+    )},
     {
       key: "2",
       label: (
@@ -37,7 +43,7 @@ const Topography = () => {
           Orientación
         </span>
       ),
-      children: <RadarPlot />
+      children: <RadarPlot data={data.aspect}/>
     }
   ];
 

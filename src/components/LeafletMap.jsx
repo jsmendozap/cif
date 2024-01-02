@@ -2,10 +2,9 @@ import React, { useContext, useState } from 'react'
 import { MapContainer, TileLayer, LayersControl, GeoJSON, useMap, Tooltip } from 'react-leaflet'
 import { DataContext } from '../App';
 import * as turf from '@turf/turf'
-import jsonData from '../assets/inf.json'
 import chroma from 'chroma-js'
 
-const LeafletMap = () => {
+const LeafletMap = ({ geodata }) => {
 
     const [data, setData] = useContext(DataContext)
     const [hoveredFeature, setHoveredFeature] = useState(null);
@@ -64,7 +63,7 @@ const LeafletMap = () => {
           <Bound />
           <LayersControl position='bottomright'>
             {
-              Object.entries(jsonData).map(file => {
+              Object.entries(geodata).map(file => {
                 const colors = (ColorPalette(file[1]))
                 
                 return(

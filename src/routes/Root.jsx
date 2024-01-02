@@ -1,30 +1,33 @@
-import React, { useState } from 'react'
-import LeafletMap from '../components/LeafletMap'
-import DropZone from '../components/DropZone';
-import CardInf from '../components/CardInf';
-import Introduction from '../components/Introduction';
+import React, { useState } from "react";
+import LeafletMap from "../components/LeafletMap";
+import DropZone from "../components/DropZone";
+import CardInf from "../components/CardInf";
+import Introduction from "../components/Introduction";
+import jsonData from "../assets/inf.json";
 
 export const LoadContext = React.createContext();
 
 const Root = () => {
-
   const [isLoaded, setLoad] = useState(false);
-  
+
   return (
     <LoadContext.Provider value={[isLoaded, setLoad]}>
-      <div className='grid grid-cols-2 gap-4 mt-4 mb-2 mx-8'>
-          <div>
-            <Introduction />
-            <CardInf title='VARIABLES BIOCLIMÁTICAS'/>
-            <CardInf title='TOPOGRAFIA'/>
-            <CardInf title='SUELOS'/>
-            <CardInf title='CONDICIONANTES'/>
-            <CardInf title='ESPECIES RECOMENDADAS'/>
-          </div>
-          {isLoaded ? <LeafletMap/> : <DropZone/>}
+      <div
+        className="grid gap-4 mt-4 mb-2 mx-8"
+        style={{ gridTemplateColumns: "50% 50%" }}
+      >
+        <div>
+          <Introduction />
+          <CardInf title="VARIABLES BIOCLIMÁTICAS" data={jsonData.bioclim} />
+          <CardInf title="TOPOGRAFIA" data={jsonData.topography} />
+          <CardInf title="SUELOS" />
+          <CardInf title="CONDICIONANTES" data={jsonData.conditions} />
+          <CardInf title="ESPECIES RECOMENDADAS" data={jsonData.sp} />
+        </div>
+        {isLoaded ? <LeafletMap geodata={jsonData.geo} /> : <DropZone />}
       </div>
     </LoadContext.Provider>
-  )
-}
+  );
+};
 
-export default Root
+export default Root;

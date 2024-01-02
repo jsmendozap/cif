@@ -1,12 +1,35 @@
-import React from 'react'
-import TabCard from './TabCard'
-import aptitud from '../media/aptitud.svg'
-import fnf from '../media/fnf.png'
-import agriculture from '../media/agriculture.png'
-import conservation from '../media/conservation.png'
-import subasta from '../media/subasta.png'
+import React from "react";
+import TabCard from "./TabCard";
+import aptitud from "../media/aptitud.svg";
+import fnf from "../media/fnf.png";
+import agriculture from "../media/agriculture.png";
+import conservation from "../media/conservation.png";
+import subasta from "../media/subasta.png";
+import PiePlot from "./PiePlot";
+import { Collapse } from "antd";
+import RowText from "./RowText";
 
-const Conditions = () => {
+const Conditions = ({ data }) => {
+  const PnnItems = data.runap.map((site, index) => ({
+    key: index + 1,
+    label: (
+      <span className="text-medium" style={{ fontFamily: "Inclusive Sans" }}>
+        {site.name}
+      </span>
+    ),
+    children: (
+      <>
+        <RowText label="Categoria" url={false} text={site.category} />
+        <RowText label="Área en resolución" url={false} text={site.area} />
+        <RowText
+          label="Administración"
+          url={false}
+          text={site.administration}
+        />
+        <RowText label="Detalles" url={true} text={site.url} />
+      </>
+    ),
+  }));
 
   const items = [
     {
@@ -17,7 +40,7 @@ const Conditions = () => {
           Aptitud Forestal
         </span>
       ),
-      children: <p>Aptitud</p>,
+      children: <PiePlot data={data.aptitud} />,
     },
     {
       key: "2",
@@ -37,7 +60,7 @@ const Conditions = () => {
           Frontera Agrícola
         </span>
       ),
-      children: <p>frontera agricola</p>
+      children: <PiePlot data={data.f_agricola} which="cond" />,
     },
     {
       key: "4",
@@ -47,7 +70,22 @@ const Conditions = () => {
           Áreas Protegidas
         </span>
       ),
-      children: <p>Areas protegidas</p>
+      children:
+        data.runap.length !== 0 ? (
+          <>
+            <p className="pb-5" style={{ fontFamily: "Inclusive Sans" }}>
+              El lote presenta conflicto con las siguientes áreas protegidas:
+            </p>
+            <Collapse items={PnnItems} />
+          </>
+        ) : (
+          <p
+            className="flex items-center justify-center"
+            style={{ fontFamily: "Inclusive Sans" }}
+          >
+            El lote no presenta areas protegidas en su interior
+          </p>
+        ),
     },
     {
       key: "5",
@@ -57,13 +95,11 @@ const Conditions = () => {
           Ley 2da
         </span>
       ),
-      children: <p>Ley 2</p>
-    }
+      children: <p>Ley 2</p>,
+    },
   ];
 
-  return (
-    <TabCard items={items} />
-  )
-}
+  return <TabCard items={items} />;
+};
 
-export default Conditions
+export default Conditions;
