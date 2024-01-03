@@ -5,6 +5,9 @@ import mountain from "../media/montana.png";
 import brujula from "../media/brujula.png";
 import PiePlot from "./PiePlot";
 import RadarPlot from "./RadarPlot";
+import SoilRow from "./SoilRow";
+import geoform from "../media/geoform.png";
+import LayerButton from "./LayerButton";
 
 const Topography = ({ data }) => {
   const items = [
@@ -18,9 +21,10 @@ const Topography = ({ data }) => {
       ),
       children: (
         <>
-          <p className="pb-5" style={{ fontFamily: "Mukta" }}>
+          <p className="pb-2" style={{ fontFamily: "Mukta" }}>
             Pendiente promedio del terreno:
           </p>
+          <LayerButton />
           <PiePlot data={data.slope} which="top" />
         </>
       ),
@@ -43,7 +47,27 @@ const Topography = ({ data }) => {
           Orientación
         </span>
       ),
-      children: <RadarPlot data={data.aspect} />,
+      children: (
+        <>
+          <LayerButton />
+          <RadarPlot data={data.aspect} />,
+        </>
+      ),
+    },
+    {
+      key: "4",
+      label: (
+        <span className="flex">
+          <img src={geoform} alt="Orientación" className="w-6 mr-2" />
+          Geomorfologia
+        </span>
+      ),
+      children: (
+        <>
+          <SoilRow label="Geoformas" text={data.relief.geoform} />
+          <SoilRow label="Relieve" text={data.relief.relief} />
+        </>
+      ),
     },
   ];
 

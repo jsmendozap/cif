@@ -23,7 +23,7 @@ const CardInf = ({ title, data }) => {
         ) : title === "CONDICIONANTES" ? (
           <Conditions data={data} />
         ) : (
-          <Soils />
+          <Soils data={data} />
         )
       ) : (
         <Skeleton />

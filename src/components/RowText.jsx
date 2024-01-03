@@ -1,6 +1,7 @@
+import { Tag } from "antd";
 import React from "react";
 
-const RowText = ({ label, url, text }) => {
+const RowText = ({ label, url, text, mult }) => {
   return (
     <div style={{ fontFamily: "Mukta" }}>
       <span className="font-bold">{label}: </span>
@@ -8,6 +9,14 @@ const RowText = ({ label, url, text }) => {
         <a href={text} target="_blank">
           Página web RUNAP
         </a>
+      ) : mult === true ? (
+        text.map((item) => {
+          return (
+            <Tag key={item} className="mb-2">
+              {item}
+            </Tag>
+          );
+        })
       ) : (
         <span>{text}</span>
       )}

@@ -2392,7 +2392,38 @@
       { "orientation": "SO", "value": 169 },
       { "orientation": "O", "value": 177 },
       { "orientation": "NO", "value": 146 }
-    ]
+    ],
+    "relief": {
+      "geoform": ["Altiplanicie", "Montaña"],
+      "relief": [
+        "Lomas y colinas",
+        "Glacís de acumulación",
+        "Vallecitos",
+        "Abanicos",
+        "Filas y vigas"
+      ]
+    }
+  },
+  "soils": {
+    "erosion": ["Ligera", "Moderada"],
+    "parent": [
+      "Cenizas volcánicas sobre rocas ígneas",
+      "Cenizas volcánicas sobre coluvios mixtos",
+      "Cenizas volcánicas y depósitos aluviales",
+      "Cenizas volcánicas sobre depósitos aluviales",
+      "Cenizas volcánicas y rocas metamórficas"
+    ],
+    "depth": ["Profundo", "Moderadamente profundo"],
+    "texture": ["Media", "Media y fina", "Media y gruesa"],
+    "fertility": ["Baja", "Baja y media"],
+    "acidity": ["Ácido", "Fuertemente ácido"],
+    "drainaje": ["Bueno", "Imperfecto y bueno"],
+    "humidity": ["Údico"],
+    "al": ["Alto", "Medio", "Bajo y medio"],
+    "salinity": ["No presenta salinidad"],
+    "da": ["Muy bajo", "Medio"],
+    "dr": ["Medio", "Bajo"],
+    "porosity": ["Muy alto"]
   },
   "conditions": {
     "aptitud": [

@@ -22,7 +22,7 @@ const Root = () => {
           <Introduction />
           <CardInf title="VARIABLES BIOCLIMÁTICAS" data={jsonData.bioclim} />
           <CardInf title="TOPOGRAFIA" data={jsonData.topography} />
-          <CardInf title="SUELOS" />
+          <CardInf title="SUELOS" data={jsonData.soils} />
           <CardInf title="CONDICIONANTES" data={jsonData.conditions} />
           {isLoaded ? (
             <Species data={jsonData.sp} />

@@ -45,7 +45,14 @@ const Species = ({ data }) => {
     },
   ];
 
-  return <Table dataSource={inf} columns={columns} bordered={true} />;
+  return (
+    <Table
+      dataSource={inf}
+      columns={columns}
+      bordered={true}
+      className="shadow-md hover:shadow-lg"
+    />
+  );
 };
 
 export default Species;
