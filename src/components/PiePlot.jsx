@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { PieChart, Pie, Sector, Cell } from "recharts";
+import LayerButton from "./LayerButton";
 
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
@@ -84,7 +85,7 @@ const renderActiveShape = (props) => {
   );
 };
 
-const PiePlot = ({ data, which }) => {
+const PiePlot = ({ data, which, geo }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const onPieEnter = useCallback(
     (_, index) => {
@@ -130,9 +131,12 @@ const PiePlot = ({ data, which }) => {
           ))}
         </Pie>
       </PieChart>
-      <p className="text-right" style={{ fontFamily: "Mukta" }}>
-        Fuente de información:
-      </p>
+      <div className="flex justify-between">
+        <LayerButton geo={geo} />
+        <p className="text-right" style={{ fontFamily: "Mukta" }}>
+          Fuente de información:
+        </p>
+      </div>
     </>
   );
 };

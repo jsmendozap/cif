@@ -8,6 +8,7 @@ import subasta from "../media/subasta.png";
 import PiePlot from "./PiePlot";
 import { Collapse } from "antd";
 import RowText from "./RowText";
+import jsonData from "../assets/inf.json";
 
 const Conditions = ({ data }) => {
   const PnnItems = data.runap.map((site, index) => ({
@@ -40,7 +41,11 @@ const Conditions = ({ data }) => {
           Aptitud Forestal
         </span>
       ),
-      children: <PiePlot data={data.aptitud} />,
+      children: (
+        <>
+          <PiePlot data={data.aptitud} geo={jsonData.geo} />
+        </>
+      ),
     },
     {
       key: "2",

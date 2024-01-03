@@ -7,7 +7,6 @@ import PiePlot from "./PiePlot";
 import RadarPlot from "./RadarPlot";
 import SoilRow from "./SoilRow";
 import geoform from "../media/geoform.png";
-import LayerButton from "./LayerButton";
 
 const Topography = ({ data }) => {
   const items = [
@@ -24,7 +23,6 @@ const Topography = ({ data }) => {
           <p className="pb-2" style={{ fontFamily: "Mukta" }}>
             Pendiente promedio del terreno:
           </p>
-          <LayerButton />
           <PiePlot data={data.slope} which="top" />
         </>
       ),
@@ -49,7 +47,6 @@ const Topography = ({ data }) => {
       ),
       children: (
         <>
-          <LayerButton />
           <RadarPlot data={data.aspect} />,
         </>
       ),
