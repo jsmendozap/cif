@@ -10,11 +10,11 @@ import {
 import { DataContext } from "../App";
 import * as turf from "@turf/turf";
 import chroma from "chroma-js";
-import { geoDataContext } from "../routes/Root";
+import { LayerDataContext } from "../routes/Root";
 
 const LeafletMap = () => {
   const [data, setData] = useContext(DataContext);
-  const [geodata, setGeodata] = useContext(geoDataContext);
+  const [LayerData, setLayerData] = useContext(LayerDataContext);
   const [hoveredFeature, setHoveredFeature] = useState(null);
 
   const Bound = () => {
@@ -81,8 +81,8 @@ const LeafletMap = () => {
       >
         <Bound />
         <LayersControl position="bottomright">
-          {geodata &&
-            Object.entries(geodata).map((file) => {
+          {LayerData &&
+            Object.entries(LayerData).map((file) => {
               const colors = ColorPalette(file[1]);
 
               return (

@@ -2421,17 +2421,18 @@
     "humidity": ["Údico"],
     "al": ["Alto", "Medio", "Bajo y medio"],
     "salinity": ["No presenta salinidad"],
+    "saturation": ["Baja", "Alta"],
     "da": ["Muy bajo", "Medio"],
     "dr": ["Medio", "Bajo"],
     "porosity": ["Muy alto"]
   },
   "conditions": {
-    "aptitud": [
+    "suitability": [
       { "name": "Aptitud alta", "value": 873 },
       { "name": "No Apta", "value": 223 },
       { "name": "Aptitud media", "value": 86 }
     ],
-    "f_agricola": [
+    "agrarian_border": [
       { "name": "Frontera agricola", "value": 1017 },
       { "name": "Exclusiones legales", "value": 23 },
       { "name": "Bosques naturales", "value": 141 }
@@ -2442,14 +2443,16 @@
         "category": "Distritos Regionales de Manejo Integrado",
         "administration": "CORNARE",
         "url": "https://runap.parquesnacionales.gov.co/area-protegida/959",
-        "area": "3506.94 ha"
+        "area": "3506.94 ha",
+        "area_res": "4000 ha"
       },
       {
         "name": "La Buenaventura, Granja Escuela",
         "category": "Reserva Natural de la Sociedad Civil",
         "administration": "PNNC",
         "url": "https://runap.parquesnacionales.gov.co/area-protegida/1999",
-        "area": "1.6569 ha"
+        "area": "1.6569 ha",
+        "area_res": "1.2 ha"
       }
     ],
     "ley_2": []

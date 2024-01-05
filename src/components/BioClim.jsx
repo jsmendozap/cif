@@ -56,7 +56,7 @@ const BioClim = ({ data }) => {
             }
 
             return (
-              <p className="label">{`${lab}: ${serie.value} ${
+              <p className="label" key={lab}>{`${lab}: ${serie.value} ${
                 serie.name === "pp" ? "mm" : "°C"
               }`}</p>
             );

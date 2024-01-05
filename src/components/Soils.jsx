@@ -41,6 +41,7 @@ const Soils = ({ data }) => {
           <SoilRow label="Acidez" text={data.acidity} />
           <SoilRow label="Aluminio" text={data.al} />
           <SoilRow label="Salinidad" text={data.salinity} />
+          <SoilRow label="Saturación de bases" text={data.saturation} />
         </>
       ),
     },

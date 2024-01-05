@@ -7,14 +7,14 @@ import jsonData from "../assets/inf.json";
 import Species from "../components/Species";
 
 export const LoadContext = React.createContext();
-export const geoDataContext = React.createContext();
+export const LayerDataContext = React.createContext();
 
 const Root = () => {
   const [isLoaded, setLoad] = useState(false);
-  const [geoData, setGeodata] = useState();
+  const [LayerData, setLayerData] = useState();
 
   return (
-    <geoDataContext.Provider value={[geoData, setGeodata]}>
+    <LayerDataContext.Provider value={[LayerData, setLayerData]}>
       <LoadContext.Provider value={[isLoaded, setLoad]}>
         <div
           className="grid gap-4 mt-4 mb-2 mx-8"
@@ -22,10 +22,10 @@ const Root = () => {
         >
           <div>
             <Introduction />
-            <CardInf title="VARIABLES BIOCLIMÁTICAS" data={jsonData.bioclim} />
-            <CardInf title="TOPOGRAFIA" data={jsonData.topography} />
-            <CardInf title="SUELOS" data={jsonData.soils} />
-            <CardInf title="CONDICIONANTES" data={jsonData.conditions} />
+            <CardInf title="VARIABLES BIOCLIMÁTICAS" />
+            <CardInf title="TOPOGRAFIA" />
+            <CardInf title="SUELOS" />
+            <CardInf title="CONDICIONANTES" />
             {isLoaded ? (
               <Species data={jsonData.sp} />
             ) : (
@@ -35,7 +35,7 @@ const Root = () => {
           {isLoaded ? <LeafletMap /> : <DropZone />}
         </div>
       </LoadContext.Provider>
-    </geoDataContext.Provider>
+    </LayerDataContext.Provider>
   );
 };
 

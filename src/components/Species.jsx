@@ -49,6 +49,13 @@ const Species = ({ data }) => {
     <Table
       dataSource={inf}
       columns={columns}
+      title={() => {
+        return (
+          <h1 className="font-bold text-lg" style={{ fontFamily: "Mukta" }}>
+            ESPECIES RECOMENDADAS
+          </h1>
+        );
+      }}
       bordered={true}
       className="shadow-md hover:shadow-lg"
     />

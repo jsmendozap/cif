@@ -21,7 +21,8 @@ const Conditions = ({ data }) => {
     children: (
       <>
         <RowText label="Categoria" url={false} text={site.category} />
-        <RowText label="Área en resolución" url={false} text={site.area} />
+        <RowText label="Área dentro del lote" url={false} text={site.area} />
+        <RowText label="Área en resolución" url={false} text={site.area_res} />
         <RowText
           label="Administración"
           url={false}
@@ -37,13 +38,13 @@ const Conditions = ({ data }) => {
       key: "1",
       label: (
         <span className="flex">
-          <img src={aptitud} alt="Pendiente" className="w-6 mr-2" />
+          <img src={aptitud} alt="Aptitud forestal" className="w-6 mr-2" />
           Aptitud Forestal
         </span>
       ),
       children: (
         <>
-          <PiePlot data={data.aptitud} geo={jsonData.geo} />
+          <PiePlot data={data.suitability} geo={jsonData.geo} />
         </>
       ),
     },
@@ -61,17 +62,17 @@ const Conditions = ({ data }) => {
       key: "3",
       label: (
         <span className="flex">
-          <img src={agriculture} alt="Orientación" className="w-6 mr-2" />
+          <img src={agriculture} alt="Frontera agricola" className="w-6 mr-2" />
           Frontera Agrícola
         </span>
       ),
-      children: <PiePlot data={data.f_agricola} which="cond" />,
+      children: <PiePlot data={data.agrarian_border} which="cond" />,
     },
     {
       key: "4",
       label: (
         <span className="flex">
-          <img src={conservation} alt="Orientación" className="w-6 mr-2" />
+          <img src={conservation} alt="Áreas protegidas" className="w-6 mr-2" />
           Áreas Protegidas
         </span>
       ),

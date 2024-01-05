@@ -5,9 +5,12 @@ import Topography from "./Topography";
 import BioClim from "./BioClim";
 import Conditions from "./Conditions";
 import Soils from "./Soils";
+import { BiophysicDataContext } from "../App";
+import jsonData from "../assets/inf.json";
 
-const CardInf = ({ title, data }) => {
+const CardInf = ({ title }) => {
   const [isLoaded, setLoaded] = useContext(LoadContext);
+  const [biophysicData, setBiophysicData] = useContext(BiophysicDataContext);
 
   return (
     <Card
@@ -17,13 +20,13 @@ const CardInf = ({ title, data }) => {
     >
       {isLoaded ? (
         title === "VARIABLES BIOCLIMÁTICAS" ? (
-          <BioClim data={data} />
+          <BioClim data={biophysicData.bioclim} />
         ) : title === "TOPOGRAFIA" ? (
-          <Topography data={data} />
+          <Topography data={biophysicData.topography} />
         ) : title === "CONDICIONANTES" ? (
-          <Conditions data={data} />
+          <Conditions data={biophysicData.conditions} />
         ) : (
-          <Soils data={data} />
+          <Soils data={jsonData.soils} />
         )
       ) : (
         <Skeleton />
