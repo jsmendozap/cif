@@ -70,7 +70,7 @@ const renderActiveShape = (props) => {
         textAnchor={textAnchor}
         fill="#333"
         style={{ fontFamily: "Inclusive Sans" }}
-      >{`${value} ha`}</text>
+      >{`${value.toLocaleString("es-CO")} ha`}</text>
       <text
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
@@ -131,7 +131,7 @@ const PiePlot = ({ data, which, geo }) => {
           ))}
         </Pie>
       </PieChart>
-      <p style={{ fontFamily: "Mukta" }}>
+      <p className="font-[Mukta]">
         Fuente de información: <br />
         {which === "top"
           ? "International Digital Elevation Model Service (IDEMS)"

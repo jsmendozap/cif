@@ -24,12 +24,12 @@ const Conditions = ({ data }) => {
         <RowText
           label="Área dentro del lote"
           url={false}
-          text={`${site.area} ha`}
+          text={`${site.area.toLocaleString("es-CO")} ha`}
         />
         <RowText
           label="Área en resolución"
           url={false}
-          text={`${site.area_res} ha `}
+          text={`${site.area_res.toLocaleString("es-CO")} ha `}
         />
         <RowText
           label="Administración"
@@ -109,7 +109,37 @@ const Conditions = ({ data }) => {
           Ley 2da
         </span>
       ),
-      children: <p>Ley 2</p>,
+      children:
+        data.law_2.length !== 0 ? (
+          <>
+            <h1
+              className="pb-3 text-medium text-center"
+              style={{ fontFamily: "Inclusive Sans" }}
+            >
+              Reservas Forestales declaradas por la Ley 2da de 1959
+            </h1>
+            <RowText label="Nombre" url={false} text={data.law_2[0].name} />
+            <RowText label="Resolución" url={false} text={data.law_2[0].res} />
+            <RowText
+              label="Área resolución"
+              url={false}
+              text={`${data.law_2[0].area_res.toLocaleString("es-CO")} ha`}
+            />
+            <RowText
+              label="Área dentro del lote"
+              url={false}
+              text={`${data.law_2[0].area.toLocaleString("es-CO")} ha`}
+            />
+          </>
+        ) : (
+          <p
+            className="flex items-center justify-center"
+            style={{ fontFamily: "Inclusive Sans" }}
+          >
+            El lote no presenta areas protegidas declaradas en la ley 2da en su
+            interior.
+          </p>
+        ),
     },
   ];
 

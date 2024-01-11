@@ -1,27 +1,39 @@
-import { Column } from "@ant-design/charts";
 import React from "react";
+import { Bar, BarChart, Tooltip, YAxis } from "recharts";
 
 const BarPlot = ({ data }) => {
-  const config = {
-    data,
-    xField: "elevation",
-    yField: "area",
-    height: 300,
-    columnWidthRatio: 0.999,
-    interactions: [
-      {
-        type: "element-highlight",
-      },
-      {
-        type: "element-selected",
-      },
-      {
-        type: "element-active",
-      },
-    ],
+  const CustomToltip = ({ payload, label, active }) => {
+    if (active) {
+      return (
+        <div className="custom-tooltips bg-gray-800 bg-opacity-50 rounded-md p-1 text-white font-bold font-[Mukta]">
+          {payload.map((serie) => {
+            return (
+              <div key={label}>
+                <p className="label">{`Rango de Elevación: ${serie.payload.elevation} m`}</p>
+                <p className="label">{`Área: ${serie.value.toLocaleString(
+                  "es-CO"
+                )} ha`}</p>
+              </div>
+            );
+          })}
+        </div>
+      );
+    }
   };
 
-  return <Column {...config} />;
+  return (
+    <>
+      <BarChart width={320} height={250} data={data}>
+        <Tooltip content={CustomToltip} />
+        <Bar dataKey="area" fill="#8884d8" />
+        <YAxis />
+      </BarChart>
+      <p className="pt-2 font-[Mukta]">
+        Fuente de información: <br />
+        International Digital Elevation Model Service (IDEMS)
+      </p>
+    </>
+  );
 };
 
 export default BarPlot;

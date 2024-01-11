@@ -32,13 +32,15 @@ const RadarPlot = ({ data }) => {
   const CustomToltip = ({ payload, label, active }) => {
     if (active) {
       return (
-        <div
-          className="custom-tooltips bg-gray-800 bg-opacity-50 rounded-md p-1 text-white font-bold"
-          style={{ fontFamily: "Mukta" }}
-        >
+        <div className="custom-tooltips bg-gray-800 bg-opacity-50 rounded-md p-1 text-white font-bold font-[Mukta]">
           <p className="intro">Orientación: {title(label)}</p>
           {payload.map((serie) => {
-            return <p className="label">{`Área: ${serie.value} ha`}</p>;
+            return (
+              <p
+                key={label}
+                className="label"
+              >{`Área: ${serie.value.toLocaleString("es-CO")} ha`}</p>
+            );
           })}
         </div>
       );
@@ -46,7 +48,7 @@ const RadarPlot = ({ data }) => {
   };
 
   return (
-    <div style={{ fontFamily: "Mukta" }}>
+    <div className="font-[Mukta]">
       <RadarChart
         cx={160}
         cy={150}

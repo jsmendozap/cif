@@ -51,7 +51,7 @@ const Species = ({ data }) => {
       columns={columns}
       title={() => {
         return (
-          <h1 className="font-bold text-lg" style={{ fontFamily: "Mukta" }}>
+          <h1 className="font-bold text-lg font-[Mukta]">
             ESPECIES RECOMENDADAS
           </h1>
         );

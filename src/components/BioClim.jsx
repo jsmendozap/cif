@@ -73,7 +73,7 @@ const BioClim = ({ data }) => {
       values.reduce((total, value) => total + value, 0) / values.length;
 
     return (
-      <div style={{ fontFamily: "Mukta" }}>
+      <div className="font-[Mukta]">
         <p className="font-medium">
           {type === "pp"
             ? `Precipitación media anual multianual: ${Math.round(mean)} mm`

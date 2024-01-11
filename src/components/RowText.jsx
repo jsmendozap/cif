@@ -3,7 +3,7 @@ import React from "react";
 
 const RowText = ({ label, url, text, mult }) => {
   return (
-    <div style={{ fontFamily: "Mukta" }}>
+    <div className="font-[Mukta]">
       <span className="font-bold">{label}: </span>
       {url === true ? (
         <a href={text} target="_blank">

@@ -21,9 +21,7 @@ const Topography = ({ data }) => {
       ),
       children: (
         <>
-          <p className="pb-2" style={{ fontFamily: "Mukta" }}>
-            Pendiente promedio del terreno:
-          </p>
+          <p className="pb-2 font-[Mukta]">Pendiente promedio del terreno:</p>
           <PiePlot data={data.slope} which="top" />
         </>
       ),
@@ -46,11 +44,7 @@ const Topography = ({ data }) => {
           Orientación
         </span>
       ),
-      children: (
-        <>
-          <RadarPlot data={data.aspect} />,
-        </>
-      ),
+      children: <RadarPlot data={data.aspect} />,
     },
     {
       key: "4",

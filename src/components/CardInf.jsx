@@ -14,10 +14,9 @@ const CardInf = ({ title }) => {
 
   return (
     <Card
-      className="shadow hover:shadow-md mb-4"
+      className="shadow hover:shadow-md mb-4 font-[Mukta]"
       title={title}
       style={{
-        fontFamily: "Mukta",
         backgroundImage: "linear-gradient(to right, #FDFEFE, #F6FAFC)",
       }}
     >

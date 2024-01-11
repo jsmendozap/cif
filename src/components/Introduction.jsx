@@ -4,10 +4,9 @@ import { Card } from "antd";
 const Introduction = () => {
   return (
     <Card
-      className="shadow hover:shadow-md text-justify mb-4"
+      className="shadow hover:shadow-md text-justify mb-4 font-[Mukta]"
       title="PRESENTACIÓN"
       style={{
-        fontFamily: "Mukta",
         backgroundImage: "linear-gradient(to right, #FDFEFE, #F6FAFC)",
       }}
     >

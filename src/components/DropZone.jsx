@@ -61,10 +61,7 @@ const DropZone = () => {
           className="sticky top-6 flex flex-col justify-center items-center"
           style={{ height: "60vh" }}
         >
-          <div
-            className="flex flex-col pb-5 items-center"
-            style={{ fontFamily: "Mukta" }}
-          >
+          <div className="flex flex-col pb-5 items-center font-[Mukta]">
             <p>Procesando información</p>
             <p>Esta operación puede tardar unos minutos</p>
           </div>

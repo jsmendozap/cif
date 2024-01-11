@@ -8,8 +8,7 @@ const LayerButton = ({ geo }) => {
 
   return (
     <button
-      className="flex pb-3"
-      style={{ fontFamily: "Mukta" }}
+      className="flex pb-3 font-[Mukta]"
       onClick={() => {
         setLayerData(geo);
       }}
