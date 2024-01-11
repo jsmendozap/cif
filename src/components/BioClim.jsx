@@ -67,10 +67,19 @@ const BioClim = ({ data }) => {
   };
 
   const Plot = ({ type }) => {
+    const values =
+      type === "pp" ? data.map((obj) => obj.pp) : data.map((obj) => obj.tavg);
+    const mean =
+      values.reduce((total, value) => total + value, 0) / values.length;
+
     return (
       <div style={{ fontFamily: "Mukta" }}>
-        <p className="font-medium">Promedio anual multianual: </p>
-        <p>Periodo de evaluación: </p>
+        <p className="font-medium">
+          {type === "pp"
+            ? `Precipitación media anual multianual: ${Math.round(mean)} mm`
+            : `Temperatura media anual multianual: ${Math.round(mean)} °C`}
+        </p>
+        <p>Periodo de evaluación: 1970 - 2000</p>
         <AreaChart
           width={330}
           height={180}
@@ -115,7 +124,7 @@ const BioClim = ({ data }) => {
             </>
           )}
         </AreaChart>
-        <p className="text-right">Fuente de información: </p>
+        <p className="text-right">Fuente de información: WorldClim</p>
       </div>
     );
   };

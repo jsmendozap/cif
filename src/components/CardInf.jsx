@@ -16,7 +16,10 @@ const CardInf = ({ title }) => {
     <Card
       className="shadow hover:shadow-md mb-4"
       title={title}
-      style={{ fontFamily: "Mukta" }}
+      style={{
+        fontFamily: "Mukta",
+        backgroundImage: "linear-gradient(to right, #FDFEFE, #F6FAFC)",
+      }}
     >
       {isLoaded ? (
         title === "VARIABLES BIOCLIMÁTICAS" ? (

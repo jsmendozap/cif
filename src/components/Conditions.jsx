@@ -21,8 +21,16 @@ const Conditions = ({ data }) => {
     children: (
       <>
         <RowText label="Categoria" url={false} text={site.category} />
-        <RowText label="Área dentro del lote" url={false} text={site.area} />
-        <RowText label="Área en resolución" url={false} text={site.area_res} />
+        <RowText
+          label="Área dentro del lote"
+          url={false}
+          text={`${site.area} ha`}
+        />
+        <RowText
+          label="Área en resolución"
+          url={false}
+          text={`${site.area_res} ha `}
+        />
         <RowText
           label="Administración"
           url={false}

@@ -7,6 +7,7 @@ import PiePlot from "./PiePlot";
 import RadarPlot from "./RadarPlot";
 import SoilRow from "./SoilRow";
 import geoform from "../media/geoform.png";
+import BarPlot from "./BarPlot";
 
 const Topography = ({ data }) => {
   const items = [
@@ -35,7 +36,7 @@ const Topography = ({ data }) => {
           Elevación
         </span>
       ),
-      children: <p>altitud</p>,
+      children: <BarPlot data={data.elevation} />,
     },
     {
       key: "3",

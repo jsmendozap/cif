@@ -66,7 +66,10 @@ const RadarPlot = ({ data }) => {
         />
         <Tooltip content={CustomToltip} />
       </RadarChart>
-      <p className="text-right">Fuente de información: </p>
+      <p>
+        Fuente de información: <br />
+        International Digital Elevation Model Service (IDEMS)
+      </p>
     </div>
   );
 };

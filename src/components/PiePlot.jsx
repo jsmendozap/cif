@@ -115,7 +115,7 @@ const PiePlot = ({ data, which, geo }) => {
           activeShape={renderActiveShape}
           data={data}
           cx={175}
-          cy={105}
+          cy={110}
           innerRadius={60}
           outerRadius={75}
           fill="gray"
@@ -131,12 +131,12 @@ const PiePlot = ({ data, which, geo }) => {
           ))}
         </Pie>
       </PieChart>
-      <div className="flex justify-between">
-        <LayerButton geo={geo} />
-        <p className="text-right" style={{ fontFamily: "Mukta" }}>
-          Fuente de información:
-        </p>
-      </div>
+      <p style={{ fontFamily: "Mukta" }}>
+        Fuente de información: <br />
+        {which === "top"
+          ? "International Digital Elevation Model Service (IDEMS)"
+          : "Unidad de Planificación Rural Agropecuaria (UPRA)"}
+      </p>
     </>
   );
 };

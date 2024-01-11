@@ -58,12 +58,16 @@ const DropZone = () => {
     <div>
       {spinner ? (
         <div
-          className="flex flex-col justify-center items-center"
+          className="sticky top-6 flex flex-col justify-center items-center"
           style={{ height: "60vh" }}
         >
-          <p className="pb-5 text-lg" style={{ fontFamily: "Mukta" }}>
-            Cargado información, por favor espere.
-          </p>
+          <div
+            className="flex flex-col pb-5 items-center"
+            style={{ fontFamily: "Mukta" }}
+          >
+            <p>Procesando información</p>
+            <p>Esta operación puede tardar unos minutos</p>
+          </div>
           <GuardSpinner size={40} />
         </div>
       ) : (
