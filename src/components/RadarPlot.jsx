@@ -50,7 +50,7 @@ const RadarPlot = ({ data }) => {
   return (
     <div className="font-[Mukta]">
       <RadarChart
-        cx={160}
+        cx={200}
         cy={150}
         outerRadius={100}
         width={450}

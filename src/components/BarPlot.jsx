@@ -25,7 +25,13 @@ const BarPlot = ({ data }) => {
     <>
       <BarChart width={320} height={250} data={data}>
         <Tooltip content={CustomToltip} />
-        <Bar dataKey="area" fill="#8884d8" />
+        <Bar
+          dataKey="area"
+          fill="rgb(101 163 13)"
+          fillOpacity={0.5}
+          stroke="black"
+          className=""
+        />
         <YAxis />
       </BarChart>
       <p className="pt-2 font-[Mukta]">

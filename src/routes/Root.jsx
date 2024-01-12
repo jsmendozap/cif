@@ -18,7 +18,7 @@ const Root = () => {
       <LoadContext.Provider value={[isLoaded, setLoad]}>
         <div
           className="grid gap-4 mt-4 mb-2 mx-8"
-          style={{ gridTemplateColumns: "52% 48%" }}
+          style={{ gridTemplateColumns: "55% 45%" }}
         >
           <div>
             <Introduction />

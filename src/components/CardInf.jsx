@@ -11,13 +11,14 @@ import jsonData from "../assets/inf.json";
 const CardInf = ({ title }) => {
   const [isLoaded, setLoaded] = useContext(LoadContext);
   const [biophysicData, setBiophysicData] = useContext(BiophysicDataContext);
-
+  //#F6FAFC
   return (
     <Card
       className="shadow hover:shadow-md mb-4 font-[Mukta]"
       title={title}
       style={{
-        backgroundImage: "linear-gradient(to right, #FDFEFE, #F6FAFC)",
+        backgroundImage:
+          "linear-gradient(to right, #FDFEFE, rgba(212, 234, 247, 0.3))",
       }}
     >
       {isLoaded ? (

@@ -136,8 +136,8 @@ const Conditions = ({ data }) => {
             className="flex items-center justify-center"
             style={{ fontFamily: "Inclusive Sans" }}
           >
-            El lote no presenta areas protegidas declaradas en la ley 2da en su
-            interior.
+            El lote no presenta reservas forestales establecidas en la ley 2da
+            en su interior.
           </p>
         ),
     },

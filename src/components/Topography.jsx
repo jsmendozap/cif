@@ -21,8 +21,10 @@ const Topography = ({ data }) => {
       ),
       children: (
         <>
-          <p className="pb-2 font-[Mukta]">Pendiente promedio del terreno:</p>
-          <PiePlot data={data.slope} which="top" />
+          <p className="pb-2 font-[Mukta]">
+            Pendiente promedio del terreno: {data.slope.mean} %
+          </p>
+          <PiePlot data={data.slope.classes} which="top" />
         </>
       ),
     },

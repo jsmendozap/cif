@@ -7,7 +7,8 @@ const Introduction = () => {
       className="shadow hover:shadow-md text-justify mb-4 font-[Mukta]"
       title="PRESENTACIÓN"
       style={{
-        backgroundImage: "linear-gradient(to right, #FDFEFE, #F6FAFC)",
+        backgroundImage:
+          "linear-gradient(to right, #FDFEFE, rgba(212, 234, 247, 0.3))",
       }}
     >
       <p>

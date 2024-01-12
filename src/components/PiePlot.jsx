@@ -23,8 +23,8 @@ const renderActiveShape = (props) => {
   const cos = Math.cos(-RADIAN * midAngle);
   const sx = cx + (outerRadius + 10) * cos;
   const sy = cy + (outerRadius + 10) * sin;
-  const mx = cx + (outerRadius + 30) * cos;
-  const my = cy + (outerRadius + 30) * sin;
+  const mx = cx + (outerRadius + 20) * cos;
+  const my = cy + (outerRadius + 20) * sin;
   const ex = mx + (cos >= 0 ? 1 : -1) * 22;
   const ey = my;
   const textAnchor = cos >= 0 ? "start" : "end";
@@ -79,7 +79,7 @@ const renderActiveShape = (props) => {
         fill="#999"
         style={{ fontFamily: "Inclusive Sans" }}
       >
-        {`(${(percent * 100).toFixed(2)}%)`}
+        {`(${(percent * 100).toFixed(1)}%)`}
       </text>
     </g>
   );
@@ -114,7 +114,7 @@ const PiePlot = ({ data, which, geo }) => {
           activeIndex={activeIndex}
           activeShape={renderActiveShape}
           data={data}
-          cx={175}
+          cx={185}
           cy={110}
           innerRadius={60}
           outerRadius={75}
@@ -131,12 +131,15 @@ const PiePlot = ({ data, which, geo }) => {
           ))}
         </Pie>
       </PieChart>
-      <p className="font-[Mukta]">
-        Fuente de información: <br />
-        {which === "top"
-          ? "International Digital Elevation Model Service (IDEMS)"
-          : "Unidad de Planificación Rural Agropecuaria (UPRA)"}
-      </p>
+      <div className="flex justify-between">
+        <p className="font-[Mukta]">
+          Fuente de información: <br />
+          {which === "top"
+            ? "International Digital Elevation Model Service (IDEMS)"
+            : "Unidad de Planificación Rural Agropecuaria (UPRA)"}
+        </p>
+        <LayerButton />
+      </div>
     </>
   );
 };
