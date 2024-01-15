@@ -50,7 +50,7 @@ const RadarPlot = ({ data }) => {
   return (
     <div className="font-[Mukta]">
       <RadarChart
-        cx={200}
+        cx={180}
         cy={150}
         outerRadius={100}
         width={450}
@@ -68,10 +68,6 @@ const RadarPlot = ({ data }) => {
         />
         <Tooltip content={CustomToltip} />
       </RadarChart>
-      <p>
-        Fuente de información: <br />
-        International Digital Elevation Model Service (IDEMS)
-      </p>
     </div>
   );
 };

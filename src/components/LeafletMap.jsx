@@ -81,29 +81,28 @@ const LeafletMap = () => {
       >
         <Bound />
         <LayersControl position="bottomright">
-          {LayerData &&
-            Object.entries(LayerData).map((file) => {
-              const colors = ColorPalette(file[1]);
-
-              return (
-                <LayersControl.Overlay key={file[0]} name={file[0]}>
-                  <GeoJSON
-                    data={file[1]}
-                    onEachFeature={tooltip}
-                    style={(feature) => ({
-                      fillColor: colors[feature.properties.aptitud],
-                      weight: 1,
-                      fillOpacity: 0.9,
-                      color: "gray",
-                    })}
-                  >
-                    <Tooltip>
+          {Object.entries(LayerData).map((file) => {
+            //const colors = ColorPalette(file[1]);
+            console.log(file);
+            return (
+              <LayersControl.Overlay key={file[1].name} name={file[1].name}>
+                <GeoJSON
+                  data={file[1]}
+                  onEachFeature={tooltip}
+                  style={(feature) => ({
+                    //fillColor: colors[feature.properties.aptitud],
+                    weight: 1,
+                    fillOpacity: 0.5,
+                  })}
+                >
+                  {/*
+                      <Tooltip>
                       {hoveredFeature && hoveredFeature.properties.aptitud}
-                    </Tooltip>
-                  </GeoJSON>
-                </LayersControl.Overlay>
-              );
-            })}
+                    </Tooltip>*/}
+                </GeoJSON>
+              </LayersControl.Overlay>
+            );
+          })}
           <LayersControl.Overlay checked name="Predio">
             <GeoJSON data={data} style={setColor} />
           </LayersControl.Overlay>

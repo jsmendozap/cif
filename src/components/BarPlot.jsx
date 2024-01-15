@@ -34,10 +34,6 @@ const BarPlot = ({ data }) => {
         />
         <YAxis />
       </BarChart>
-      <p className="pt-2 font-[Mukta]">
-        Fuente de información: <br />
-        International Digital Elevation Model Service (IDEMS)
-      </p>
     </>
   );
 };

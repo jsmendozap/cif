@@ -7,3 +7,16 @@
 .ant-tabs-tab {
   padding-left: 0px !important;
 }
+
+.ant-card-head {
+  background-color: rgba(212, 234, 247, 0.25) !important;
+}
+
+.ant-card-head-title {
+  color: #0f1c2e !important;
+}
+
+.ant-table-title {
+  background-color: rgb(212, 234, 247, 0.3) !important;
+  color: #0f1c2e !important;
+}

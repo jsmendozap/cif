@@ -8,7 +8,7 @@ import subasta from "../media/subasta.png";
 import PiePlot from "./PiePlot";
 import { Collapse } from "antd";
 import RowText from "./RowText";
-import jsonData from "../assets/inf.json";
+import LayerButton from "./LayerButton";
 
 const Conditions = ({ data }) => {
   const PnnItems = data.runap.map((site, index) => ({
@@ -52,7 +52,14 @@ const Conditions = ({ data }) => {
       ),
       children: (
         <>
-          <PiePlot data={data.suitability} geo={jsonData.geo} />
+          <PiePlot data={data.suitability} />
+          <div className="flex justify-between">
+            <p className="font-[Mukta]">
+              Fuente de información: <br />
+              Unidad de Planeación Rural Agropecuaria (UPRA)
+            </p>
+            <LayerButton layer="suitability" name="Aptitud forestal" />
+          </div>
         </>
       ),
     },
@@ -74,7 +81,18 @@ const Conditions = ({ data }) => {
           Frontera Agrícola
         </span>
       ),
-      children: <PiePlot data={data.agrarian_border} which="cond" />,
+      children: (
+        <>
+          <PiePlot data={data.agrarian_border} which="cond" />
+          <div className="flex justify-between">
+            <p className="font-[Mukta]">
+              Fuente de información: <br />
+              Unidad de Planeación Rural Agropecuaria (UPRA)
+            </p>
+            <LayerButton layer="agriculturalBorder" name="Frontera Agrícola" />
+          </div>
+        </>
+      ),
     },
     {
       key: "4",
@@ -84,22 +102,32 @@ const Conditions = ({ data }) => {
           Áreas Protegidas
         </span>
       ),
-      children:
-        data.runap.length !== 0 ? (
-          <>
-            <p className="pb-5" style={{ fontFamily: "Inclusive Sans" }}>
-              El lote presenta conflicto con las siguientes áreas protegidas:
+      children: (
+        <>
+          {data.runap.length !== 0 ? (
+            <>
+              <p className="pb-5" style={{ fontFamily: "Inclusive Sans" }}>
+                El lote presenta conflicto con las siguientes áreas protegidas:
+              </p>
+              <Collapse items={PnnItems} />
+            </>
+          ) : (
+            <p
+              className="flex items-center justify-center"
+              style={{ fontFamily: "Inclusive Sans" }}
+            >
+              El lote no presenta areas protegidas en su interior
             </p>
-            <Collapse items={PnnItems} />
-          </>
-        ) : (
-          <p
-            className="flex items-center justify-center"
-            style={{ fontFamily: "Inclusive Sans" }}
-          >
-            El lote no presenta areas protegidas en su interior
-          </p>
-        ),
+          )}
+          <div className="flex justify-between mt-8">
+            <p className="font-[Mukta]">
+              Fuente de información: <br />
+              Parques Nacionales Naturales de Colombia
+            </p>
+            <LayerButton layer="runap" name="Áreas protegidas" />
+          </div>
+        </>
+      ),
     },
     {
       key: "5",
@@ -109,37 +137,51 @@ const Conditions = ({ data }) => {
           Ley 2da
         </span>
       ),
-      children:
-        data.law_2.length !== 0 ? (
-          <>
-            <h1
-              className="pb-3 text-medium text-center"
+      children: (
+        <>
+          {data.law_2.length !== 0 ? (
+            <>
+              <h1
+                className="pb-3 text-medium text-center"
+                style={{ fontFamily: "Inclusive Sans" }}
+              >
+                Reservas Forestales declaradas por la Ley 2da de 1959
+              </h1>
+              <RowText label="Nombre" url={false} text={data.law_2[0].name} />
+              <RowText
+                label="Resolución"
+                url={false}
+                text={data.law_2[0].res}
+              />
+              <RowText
+                label="Área resolución"
+                url={false}
+                text={`${data.law_2[0].area_res.toLocaleString("es-CO")} ha`}
+              />
+              <RowText
+                label="Área dentro del lote"
+                url={false}
+                text={`${data.law_2[0].area.toLocaleString("es-CO")} ha`}
+              />
+            </>
+          ) : (
+            <p
+              className="flex items-center justify-center"
               style={{ fontFamily: "Inclusive Sans" }}
             >
-              Reservas Forestales declaradas por la Ley 2da de 1959
-            </h1>
-            <RowText label="Nombre" url={false} text={data.law_2[0].name} />
-            <RowText label="Resolución" url={false} text={data.law_2[0].res} />
-            <RowText
-              label="Área resolución"
-              url={false}
-              text={`${data.law_2[0].area_res.toLocaleString("es-CO")} ha`}
-            />
-            <RowText
-              label="Área dentro del lote"
-              url={false}
-              text={`${data.law_2[0].area.toLocaleString("es-CO")} ha`}
-            />
-          </>
-        ) : (
-          <p
-            className="flex items-center justify-center"
-            style={{ fontFamily: "Inclusive Sans" }}
-          >
-            El lote no presenta reservas forestales establecidas en la ley 2da
-            en su interior.
-          </p>
-        ),
+              El lote no presenta reservas forestales establecidas en la ley 2da
+              en su interior.
+            </p>
+          )}
+          <div className="flex justify-between mt-8">
+            <p className="font-[Mukta]">
+              Fuente de información: <br />
+              Unidad de Planeación Rural Agropecuaria (UPRA)
+            </p>
+            <LayerButton layer="runap" name="Áreas protegidas" />
+          </div>
+        </>
+      ),
     },
   ];
 

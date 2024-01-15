@@ -8,6 +8,7 @@ import RadarPlot from "./RadarPlot";
 import SoilRow from "./SoilRow";
 import geoform from "../media/geoform.png";
 import BarPlot from "./BarPlot";
+import LayerButton from "./LayerButton";
 
 const Topography = ({ data }) => {
   const items = [
@@ -25,6 +26,13 @@ const Topography = ({ data }) => {
             Pendiente promedio del terreno: {data.slope.mean} %
           </p>
           <PiePlot data={data.slope.classes} which="top" />
+          <div className="flex justify-between">
+            <p className="font-[Mukta]">
+              Fuente de información: <br />
+              International Digital Elevation Model Service (IDEMS)
+            </p>
+            <LayerButton layer="slope" name="Pendiente" />
+          </div>
         </>
       ),
     },
@@ -36,7 +44,18 @@ const Topography = ({ data }) => {
           Elevación
         </span>
       ),
-      children: <BarPlot data={data.elevation} />,
+      children: (
+        <>
+          <BarPlot data={data.elevation} />
+          <div className="flex justify-between mt-8">
+            <p className="font-[Mukta]">
+              Fuente de información: <br />
+              International Digital Elevation Model Service (IDEMS)
+            </p>
+            <LayerButton layer="elevation" name="Elevación" />
+          </div>
+        </>
+      ),
     },
     {
       key: "3",
@@ -46,7 +65,18 @@ const Topography = ({ data }) => {
           Orientación
         </span>
       ),
-      children: <RadarPlot data={data.aspect} />,
+      children: (
+        <>
+          <RadarPlot data={data.aspect} />
+          <div className="flex justify-between mt-4">
+            <p className="font-[Mukta]">
+              Fuente de información: <br />
+              International Digital Elevation Model Service (IDEMS)
+            </p>
+            <LayerButton layer="aspect" name="Orientación" />
+          </div>
+        </>
+      ),
     },
     {
       key: "4",

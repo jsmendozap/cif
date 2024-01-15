@@ -11,14 +11,14 @@ export const LayerDataContext = React.createContext();
 
 const Root = () => {
   const [isLoaded, setLoad] = useState(false);
-  const [LayerData, setLayerData] = useState();
+  const [LayerData, setLayerData] = useState([]);
 
   return (
     <LayerDataContext.Provider value={[LayerData, setLayerData]}>
       <LoadContext.Provider value={[isLoaded, setLoad]}>
         <div
           className="grid gap-4 mt-4 mb-2 mx-8"
-          style={{ gridTemplateColumns: "55% 45%" }}
+          style={{ gridTemplateColumns: "52% 48%" }}
         >
           <div>
             <Introduction />
